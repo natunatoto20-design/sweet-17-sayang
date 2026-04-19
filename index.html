@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Seventeen</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .photos {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .photos img {
+      width: 120px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 2px solid white;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #ff4f81;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #secret {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .heart {
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Musik -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>🎉 Happy Sweet Seventeen 🎂</h1>
+    <p><strong>Jezlyne Benedikta Indah</strong> 💖</p>
+
+    <!-- FOTO -->
+    <div class="photos">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+    </div>
+
+    <p>Semoga selalu bahagia, panjang umur, dan semua impianmu tercapai ❤️</p>
+
+    <button onclick="showSecret()">💌 Buka Pesan Rahasia</button>
+
+    <div id="secret">
+      Aku sayang banget sama kamu 💖<br>
+      Terima kasih sudah ada di hidupku ❤️
+    </div>
+  </div>
+
+  <script>
+    function showSecret() {
+      document.getElementById("secret").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
